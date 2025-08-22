@@ -272,3 +272,51 @@ socket.on("anonymousSession", (data) => {
 4. **Production Ready**: Ensure all components work together
 
 **Session End Status**: Anonymous access breakthrough achieved and fully functional! Dashboard now accessible without authentication. Ready to continue fixing remaining tests.
+
+---
+
+## 📁 **Repository Structure Documentation**
+
+### Nested Repository Architecture
+
+This project uses a **nested repository structure** for organization:
+
+```
+/home/ubuntu/ (Main Agent Repository)
+├── AGENTS.md              # Agent mission and capabilities
+├── LOG.md                 # Development progress and documentation
+└── uptime-kuma/           # Nested Uptime Kuma repository
+    ├── server/            # Backend server code
+    ├── src/               # Frontend Vue.js application
+    ├── test/              # Test suites
+    ├── ecosystem.config.js # PM2 process management
+    └── package.json       # Node.js dependencies
+```
+
+### Commit Strategy
+
+**Always commit to BOTH repositories:**
+1. **Main Repository** (`/home/ubuntu`): Agent documentation and progress logs
+2. **Uptime Kuma Repository** (`/home/ubuntu/uptime-kuma`): Actual application code
+
+**Example workflow:**
+```bash
+# Commit agent progress
+cd /home/ubuntu
+git add AGENTS.md LOG.md
+git commit -m "docs: Update progress"
+
+# Commit code changes
+cd /home/ubuntu/uptime-kuma
+git add .
+git commit -m "feat: Implement feature"
+```
+
+### Why This Structure?
+
+- **Separation of Concerns**: Agent logic vs. application code
+- **Clean History**: Agent commits don't clutter application repository
+- **Documentation**: Agent progress tracked separately from code changes
+- **Backup**: Both repositories committed for complete project tracking
+
+**Future Reference**: Always check both repositories when reviewing changes or understanding project state.
